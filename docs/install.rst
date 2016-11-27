@@ -63,3 +63,19 @@ To run a basic check just run ``pytest``.
 
 To start a server run ``./manage.py runserver_plus``. Usual ``./manage.py runserver`` will work too, but
 ``runserver_plus`` provides more convenient debugging.
+
+PyCharm project
+---------------
+PyCharm is a great tool for Python developer. If you don't use it yet then it's a great time to start. This project has
+basic integration with PyCharm in form of predefined layout and tasks to run server and tests. Just open up folder with
+the project in PyCharm and it will work.
+
+One catch: most of the files from .idea/ were added to .gitignore with a few exceptions, which were made, to provide
+"ready to go" configuration. However PyCharm is known to modify it's project configuration files by its own will. If
+that will happen to your files in .idea/ and you'll get annoyed by GIT status messages then don't remove them from GIT
+(that will break PyCharm integration for other developers), but instead run this command for a changed file::
+
+    git update-index --assume-unchanged .idea/lifetech.iml
+
+That will require some manual work to merge commits containing changes to these files but these commits are very rare,
+if any at all.

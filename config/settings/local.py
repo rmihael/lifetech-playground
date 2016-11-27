@@ -12,7 +12,9 @@ Local settings
 
 import socket
 import os
+
 from .common import *  # noqa
+from .common import env, TEMPLATES, MIDDLEWARE, INSTALLED_APPS  # a minor sacrifice to make flake8 happy
 
 # DEBUG
 # ------------------------------------------------------------------------------

@@ -10,15 +10,14 @@ Production Configurations
 
 
 """
-from __future__ import absolute_import, unicode_literals
+import logging
 
 from boto.s3.connection import OrdinaryCallingFormat
 from django.utils import six
 
-import logging
-
-
+# noinspection PyUnresolvedReferences
 from .common import *  # noqa
+from .common import env, INSTALLED_APPS, MIDDLEWARE, TEMPLATES, DATABASES  # a minor sacrifice to make flake8 happy
 
 # SECRET CONFIGURATION
 # ------------------------------------------------------------------------------

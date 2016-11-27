@@ -36,7 +36,9 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
         return reverse('users:detail',
                        kwargs={'username': self.request.user.username})
 
-    def get_object(self):
+    def get_object(self, queryset=None):
+        if queryset is not None:
+            raise NotImplementedError("Using queryset for UserUpdateView is not supported")
         # Only get the User record for the user making the request
         return User.objects.get(username=self.request.user.username)
 

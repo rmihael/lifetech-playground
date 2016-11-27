@@ -66,6 +66,7 @@ node_modules/
 
 # virtual environments
 .env
+.python-version
 
 # User-uploaded media
 lifetech/media/

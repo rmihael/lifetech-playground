@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# commit-msg takes a single parameter: a path to temp file storing commit message entered by developer
+
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [ ${CURRENT_BRANCH} != "master" ]; then
+  exit 0
+fi
+
+COMMIT_TEXT=$(cat $1)
+
+PATTERN='^((T[0-9]+(, T[0-9]+)*):)|HOTFIX:'
+
+# if commit text matches regular expression then grep will exit with code 0, otherwise it will be 1
+if (! echo ${COMMIT_TEXT} | grep -E "${PATTERN}" --quiet)
+then
+  echo 'Commit messages for a Nimble Core project should match the following pattern:'
+  echo 'T1234: Name of a ticket or some descriptive text'
+  echo 'HOTFIX: Some descriptive text'
+  echo
+  echo 'If commit spreads over multiple tickets then list them with comma:'
+  echo 'T1234, T2345: Some descriptive text'
+  echo
+  echo 'If your commit is a hotfix not connected to any other ticket then:'
+  echo '1. Think again, may be there IS some ticket that this hotfix relates to?'
+  echo '2. If there is indeed no corresponding ticket then use format "HOTFIX: Some descriptive text"'
+  echo "For your reference, this is the formal pattern: '${PATTERN}'"
+  exit 1
+else
+  echo 'Commit message check passed'
+fi

@@ -21,7 +21,7 @@ Make sure that PostgreSQL can be accessed locally::
     psql (9.6.1)
     Type "help" for help.
 
-    lifetech=# \q
+    lifetech=#
 
 Python environment
 ~~~~~~~~~~~~~~~~~~
@@ -59,7 +59,7 @@ It's pretty simple for now::
     pip install -r requirements/local.txt
     manage.py migrate
 
-To run a basic check just run `pytest`.
+To run a basic check just run ``pytest``.
 
-To start a server run `./manage.py runserver_plus`. Usual `./manage.py runserver` will work too, but `runserver_plus`
-provides more convenient debugging environment.
+To start a server run ``./manage.py runserver_plus``. Usual ``./manage.py runserver`` will work too, but
+``runserver_plus`` provides more convenient debugging.

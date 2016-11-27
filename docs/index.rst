@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to LifeTech's documentation!
-====================================================================
+====================================
 
 Contents:
 
@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    install
+   git
    deploy
    tests
 

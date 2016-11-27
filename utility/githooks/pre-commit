@@ -1,0 +1,24 @@
+#!/bin/bash -e
+
+# working directory for Git hook is HEAD of repository
+
+#TODO: enable when we'll have proper domain for a project with all developers identities listed
+#AUTHORINFO=$(git var GIT_AUTHOR_IDENT) || exit 1
+#EMAIL=$(printf '%s\n' "${AUTHORINFO}" | sed -n 's/^.* <\(.*\)> .*$/\1/p')
+#
+#if [[ ${EMAIL} != *@project.com ]]
+#then
+#  echo "Commit author email MUST belong to project's domain (e.g. member@project.com)"
+#  echo "To fix the problem:"
+#  echo
+#  echo "git config --local user.name \"Your Name\""
+#  echo "git config --local user.email youremail@project.com"
+#  exit 1
+#fi
+
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [ ${CURRENT_BRANCH} == "master" ]; then
+    echo "Verifying code with flake8..."
+    flake8
+fi

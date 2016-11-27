@@ -1,0 +1,26 @@
+#!/usr/bin/env bash -e
+
+get_abs_filename() {
+  # $1 : relative filename
+  echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
+}
+
+get_abs_dirname() {
+  echo "$(cd "$1" && pwd)"
+}
+
+PROJECT_HOME=$(get_abs_dirname `dirname $0`/..)
+
+rm -rf ${PROJECT_HOME}/.git/hooks
+ln -s ${PROJECT_HOME}/utility/githooks ${PROJECT_HOME}/.git/hooks
+
+pushd ${PROJECT_HOME} > /dev/null
+
+git config branch.master.rebase true
+git config branch.master.mergeoptions "--squash --ff-only"
+git config log.mailmap true
+git config push.default current
+git config tag.sort version:refname
+git config rebase.autostash true
+
+popd > /dev/null

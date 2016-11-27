@@ -42,6 +42,14 @@ I find pyenv to be particularly useful for that task. Again, code snippet assumi
 
 That will create an environment with Python 3.5.2 and completely isolated set of packages.
 
+GIT configuration
+~~~~~~~~~~~~~~~~~
+This project make use of git hooks to detect problems with code early, even before they reach CI server. In order to
+configure these hooks as well as some other options regarding branch merging policies and so on it's **required** to
+run script::
+
+    utility/configure_repo
+
 Application server
 ------------------
 

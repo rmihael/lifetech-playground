@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-startuppage{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+
+    <div class="startup_name">{{ page.name }}</div>
+
+    {{ page.description|richtext }}
+{% endblock %}

@@ -57,18 +57,23 @@ It's pretty simple for now::
 
     # from project's root directory
     pip install -r requirements/local.txt
-    manage.py migrate
+    ./manage.py migrate
+    ./manage.py createsuperuser  # creates a superuser for Wagtail CMS
 
 To run a basic check just run ``pytest``.
 
 To start a server run ``./manage.py runserver_plus``. Usual ``./manage.py runserver`` will work too, but
 ``runserver_plus`` provides more convenient debugging.
 
-PyCharm project
----------------
+PyCharm integration
+-------------------
 PyCharm is a great tool for Python developer. If you don't use it yet then it's a great time to start. This project has
 basic integration with PyCharm in form of predefined layout and tasks to run server and tests. Just open up folder with
 the project in PyCharm and it will work.
+
+Most probably you'll want to use PyCharm's integration with project's database. To enable it go to
+View -> Tool windows -> Databases, click plus sign add PostgreSQL instance. You may be asked to download missing
+drivers. Simply confirm that.
 
 One catch: most of the files from .idea/ were added to .gitignore with a few exceptions, which were made, to provide
 "ready to go" configuration. However PyCharm is known to modify it's project configuration files by its own will. If

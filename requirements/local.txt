@@ -27,3 +27,6 @@ astroid==1.4.8
 isort==4.2.5
 lazy-object-proxy==1.2.2
 wrapt==1.10.8
+
+mypy-lang==0.4.6
+typed-ast==0.6.1

@@ -21,4 +21,6 @@ CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 if [ ${CURRENT_BRANCH} == "master" ]; then
     echo "Verifying code with flake8..."
     flake8
+    echo "Verifying code with mypy..."
+    mypy -p lifetech
 fi
